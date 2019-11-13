@@ -1,31 +1,31 @@
 package com.gdou.crrp.controller;
 
-import com.gdou.crrp.entity.User;
 import com.gdou.crrp.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.thymeleaf.util.StringUtils;
 
-@RestController
+@Controller
 public class UserController {
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping("/user/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public User getUser(@PathVariable("id") Integer id){
-        User user = userRepository.getOne(id);
-        return user;
+    @RequestMapping("/toLogin")
+    public String toLogin(){
+        return "login";
     }
 
-    @GetMapping("/user")
-    public User insertUser(User user){
-        User save = userRepository.save(user);
-        return save;
+    @PostMapping("/login")
+    public String login(String phone, String password, Model model){
+        if(!StringUtils.isEmpty(phone)&&"12345".equals(password))
+            return "home";
+        else {
+            model.addAttribute("msg", "账号或密码错误（提示：账号任意，密码：12345）");
+            return "login";
+        }
     }
 
 }

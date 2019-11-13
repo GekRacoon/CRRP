@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+<div>
+
+    <p style="color: red" th:text="${msg}" th:if="${! #strings.isEmpty(msg)}"></p>
+    <form method="post" th:action="@{/login}">
+        <table>
+            <tr>
+                <td>账号：</td>
+                <td><input name="phone" type="text" placeholder="请输入账号" /></td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input name="password" type="password" placeholder="请输入密码" /></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="登录" /></td>
+                <td><input type="button" value="注册" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
