@@ -3,7 +3,7 @@ package com.gdou.crrp.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="User")
+@Table(name="tb_user_info")
 public class User {
 
     @Id
@@ -13,7 +13,7 @@ public class User {
     @Column(name = "name", length = 50)
     private String name;
 
-    @Column(name = "phone", length = 11)
+    @Column(name = "phone", length = 11, nullable = false)
     private String phone;
 
     @Column(name = "address", length = 50)
@@ -25,13 +25,12 @@ public class User {
     @Column(name = "gender", length = 2)
     private String gender;
 
-    @Column(name = "age")
     private int age;
 
-    @Column(name = "nick", length = 50)
+    @Column(name = "nickname", length = 50)
     private String nick;
 
-    @Column(name = "password", length = 50)
+    @Column(name = "password", length = 50, nullable = false)
     private String password;
 
     public int getId() {
