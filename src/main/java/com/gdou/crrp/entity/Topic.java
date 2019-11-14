@@ -11,7 +11,6 @@ public class Topic {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "uid", nullable = false)
     private int uid;
 
     private String title;
@@ -21,7 +20,8 @@ public class Topic {
 
     private Date time;
 
-    private int like;
+    @Column(name = "good")
+    private int good;
 
     @Column(name = "comment",columnDefinition = "text")
     private String comment;
@@ -66,12 +66,12 @@ public class Topic {
         this.time = time;
     }
 
-    public int getLike() {
-        return like;
+    public int getGood() {
+        return good;
     }
 
-    public void setLike(int like) {
-        this.like = like;
+    public void setGood(int good) {
+        this.good = good;
     }
 
     public String getComment() {
@@ -90,7 +90,7 @@ public class Topic {
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", time=" + time +
-                ", like=" + like +
+                ", good=" + good +
                 ", comment='" + comment + '\'' +
                 '}';
     }

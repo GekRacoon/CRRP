@@ -10,11 +10,9 @@ public class ChatMsg {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "msg_from", nullable = false)
-    private String msg_from;
+    private int msg_from;
 
-    @Column(name = "msg_to", nullable = false)
-    private String msg_to;
+    private int msg_to;
 
     @Column(name = "chat_data", columnDefinition = "text not null")
     private String chat_data;
@@ -27,19 +25,19 @@ public class ChatMsg {
         this.id = id;
     }
 
-    public String getMsg_from() {
+    public int getMsg_from() {
         return msg_from;
     }
 
-    public void setMsg_from(String msg_from) {
+    public void setMsg_from(int msg_from) {
         this.msg_from = msg_from;
     }
 
-    public String getMsg_to() {
+    public int getMsg_to() {
         return msg_to;
     }
 
-    public void setMsg_to(String msg_to) {
+    public void setMsg_to(int msg_to) {
         this.msg_to = msg_to;
     }
 

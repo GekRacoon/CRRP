@@ -22,8 +22,10 @@ public class Article {
 
     private Date time;
 
+    @Column(name = "view")
     private int view;
 
+    @Column(name = "collect_num")
     private int collect_num;
 
     public int getId() {
